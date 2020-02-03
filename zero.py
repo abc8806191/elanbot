@@ -8,9 +8,9 @@ import time, random, sys, json, codecs, threading, glob, re, string, os, request
 from gtts import gTTS
 from googletrans import Translator
 botStart = time.time()
-cl = LINE("tfcis20@gmail.com", "e27676271")
+cl = LINE("shunweiz5@gmail.com", "qwaszx9910425")
 cl.log("Auth Token : " + str(cl.authToken))
-print ("====Ykino登入成功====")
+print ("====主機登入成功====")
 kl = LINE("yukino0038@gmail.com", "e27676271")
 kl.log("Auth Token : " + str(kl.authToken))
 print ("====雪乃登入成功====")
@@ -56,7 +56,7 @@ myProfile["statusMessage"] = clProfile.statusMessage
 myProfile["pictureStatus"] = clProfile.pictureStatus
 msg_dict = {}
 bl = [""]
-god = ['u85ee80cfb293599510d0c17ab25a5c98']
+god = ['ub6f9d53713c5869f0d78e71febe13837']
 def cTime_to_datetime(unixtime):
     return datetime.datetime.fromtimestamp(int(str(unixtime)[:len(str(unixtime))-3]))
 def restartBot():
@@ -105,7 +105,7 @@ def helpmessage():
     【ban @】黑單某人
     【unban @】解除黑單某人
     【clearban】清空黑名單
-    【yukino:bye】讓yukino退出群組
+    【yukino:bye】讓主機退出群組
     【Fbc:】好友廣播
     【Gbc:】群組廣播
     【resetgroup】重新設定群組
@@ -167,7 +167,7 @@ def helpmessage():
     【sf】關閉已讀點
     【sr】更新已讀點
     【r】查看當前已讀
-    ⇒Credits By.Arasi™⇐"""
+    ⇒Credits By.幻想工作室™⇐"""
     return helpMessage
 def lineBot(op):
     try:
@@ -179,8 +179,8 @@ def lineBot(op):
             if settings["autoAdd"] == True:
                 cl.findAndAddContactsByMid(op.param1)
                 cl.sendMessage(op.param1, "安安！{} 感謝您加我為好友！".format(str(contact.displayName)))
-                cl.sendMessage(op.param1, "咱是由Arasi所開發的ArasiproV3\n歡迎邀請我加入群組喔!!!!\n如有問題請麻煩私訊作者")
-                cl.sendContact(op.param1, "u85ee80cfb293599510d0c17ab25a5c98")
+                cl.sendMessage(op.param1, "如有問題請麻煩私訊作者")
+                cl.sendContact(op.param1, "ub6f9d53713c5869f0d78e71febe13837")
         if op.type == 24:
             print ("[ 24 ] 通知離開副本")
             if settings["autoLeave"] == True:
@@ -211,8 +211,8 @@ def lineBot(op):
             if clMID in op.param3:
                 if settings["autoJoin"] == True:
                     cl.acceptGroupInvitation(op.param1)
-                    cl.sendMessage(op.param1, "歡迎使用由Arasi開發的ArasiproV3!!!\nMy creator:")
-                    cl.sendContact(op.param1, "u85ee80cfb293599510d0c17ab25a5c98")
+                    cl.sendMessage(op.param1, "我的作者")
+                    cl.sendContact(op.param1, "ub6f9d53713c5869f0d78e71febe13837")
                     if group.preventedJoinByTicket == True:
                         group.preventedJoinByTicket = False
                         cl.updateGroup(group)
@@ -238,7 +238,7 @@ def lineBot(op):
                             cl.sendContact(op.param1, GS)
                     except:
                         cl.sendMessage(op.param1, "[ERROR]\n設置GM權限失敗!!!!\n請尋找作者幫忙")
-                        cl.sendContact(op.param1, "u85ee80cfb293599510d0c17ab25a5c98")
+                        cl.sendContact(op.param1, "ub6f9d53713c5869f0d78e71febe13837")
             elif op.param1 not in settings["inviteprotect"]:
                 if op.param2 not in settings['admin'] and op.param2 not in settings['bot'] and op.param2 not in settings['gm'][op.param1]:
                     cl.sendMessage(op.param1, "群組邀請保護開啟中!!!!")
@@ -594,7 +594,7 @@ def lineBot(op):
                                 json.dump(settings, fp, sort_keys=True, indent=4)
                                 cl.sendMessage(to, "[提示]\n已成功加入黑名單\nMID: " + mid)
                                 cl.sendContact(to, mid)
-                                cl.sendMessage(mid, "[警告]\n你因為違反yukino使用公約已被列入黑單!!")
+                                cl.sendMessage(mid, "[警告]\n你因為違反使用公約已被列入黑單!!")
                         elif "Unban" in msg.text:
                             if msg.toType == 2:
                                 print ("[UnBan] 成功")
@@ -943,7 +943,7 @@ def lineBot(op):
                             helpMessage = helpmessage()
                             cl.sendMessage(to, str(helpMessage))
                             cl.sendMessage(to, "我的作者")
-                            cl.sendContact(to, "u85ee80cfb293599510d0c17ab25a5c98")
+                            cl.sendContact(to, "ub6f9d53713c5869f0d78e71febe13837")
                     elif text.lower() == 'test':
                         cl.sendMessage(to, "運行中......")
                         kl.sendMessage(to, "運行中......")
@@ -1007,7 +1007,7 @@ def lineBot(op):
                     elif text.lower() == 'about':
                         try:
                             arr = []
-                            owner = "u85ee80cfb293599510d0c17ab25a5c98"
+                            owner = "ub6f9d53713c5869f0d78e71febe13837"
                             creator = cl.getContact(owner)
                             contact = cl.getContact(clMID)
                             group = cl.getGroup(to)
@@ -1016,9 +1016,9 @@ def lineBot(op):
                             ret_ = "<<利用情報>>"
                             ret_ += "\n[私の名前は] : {}".format(contact.displayName)
                             ret_ += "\n[グループ名] : {}".format(str(group.name))
-                            ret_ += "\n[現在のバージョン]: alpha v1.0.0"
+                            ret_ += "\n[現在のバージョン]:  v1.0.0"
                             ret_ += "\n[作成者] : {}".format(creator.displayName)
-                            ret_ += "\n[URLを追加] : http://line.naver.jp/ti/p/~ee27676271"
+                            ret_ += "\n[URLを追加] : http://line.naver.jp/ti/p/~abc8806191"
                             cl.sendMessage(to, str(ret_))
                         except Exception as e:
                             cl.sendMessage(msg.to, str(e))
@@ -1439,9 +1439,9 @@ def lineBot(op):
                                 if settings["detectMention"] == True:
                                     contact = cl.getContact(sender)
                                     sendMessageWithMention(to, contact.mid)
-                                    cl.sendMessage(to, "安安你好,我是防翻機器人Yukino,有事請找主人")
+                                    cl.sendMessage(to, "安安你好,我是防翻機器人,有事請找主人")
                                     time.sleep(0.5)
-                                    cl.sendContact(op.param1, "u85ee80cfb293599510d0c17ab25a5c98")
+                                    cl.sendContact(op.param1, "ub6f9d53713c5869f0d78e71febe13837")
                                 break
         if op.type == 55:
             print ("[ 55 ] 通知讀取消息")
