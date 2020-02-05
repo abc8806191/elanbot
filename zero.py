@@ -8,7 +8,7 @@ import time, random, sys, json, codecs, threading, glob, re, string, os, request
 from gtts import gTTS
 from googletrans import Translator
 botStart = time.time()
-cl = LINE("EN8M4CX6VxWqvUGswI55.I7AJcrfysUIaxrqdad1azq.sCD6QR7EEHcGYhN4mjyn60eBFe/Md58/0Pk5gSCfG+s=")
+cl = LINE("ENSKPQR2cCa1DovGZErc.89ygu6799+QVSkkKJ8FV+a.v12Sm8pri9GVG4c1nEWi3RRIplmkqqdzS5GWqITOyiE=")
 cl.log("Auth Token : " + str(cl.authToken))
 print ("====主機登入成功====")
 kl = LINE("ENIQ9yxoHZ9Z2TzaRlAc.3eFmkgPriPKsRz7omolaVa.MgB3Z20VlKf01QE43tqlIKSKPkjXCkc5lXtT7GJ7FU0=")
